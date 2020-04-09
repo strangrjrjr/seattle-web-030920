@@ -1,0 +1,22 @@
+<% if !flash[:error_message].empty? %>
+    <% flash[:error_message].each do |msg| %>
+    <p><%= msg %></p>
+    <% end %>
+<% end %>
+<h1>Create an Employee</h1>
+<%= form_for @employee do |f| %>
+    <p><%= f.label :first_name %></p>
+    <p><%= f.text_field :first_name %></p>
+    <p><%= f.label :last_name %></p>
+    <p><%= f.text_field :last_name %></p>
+    <p><%= f.label :alias %></p>
+    <p><%= f.text_field :alias %></p>
+    <p><%= f.label :title %></p>
+    <p><%= f.text_field :title %></p>
+    <p><%= f.label :office %></p>
+    <p><%= f.text_field :office %></p>
+    <p><%= f.collection_select :dog_id, Dog.all, :id, :name %></p>
+    <p><%= f.label :img_url %></p>
+    <p><%= f.text_field :img_url %></p>
+    <p><%= f.submit "Create Employee" %>
+<% end %>
